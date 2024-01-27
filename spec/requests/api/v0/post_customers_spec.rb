@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Api::V0::Customers", type: :request do
   it "creates a customer" do
-    customer_params = { customer: { first_name: 'John', last_name: 'Doe', email: 'fake@domain.com', address: '123 Fake St', city: 'Fake City', state: 'Fake State', zip: '12345' } }
+    customer_params = { customer: { first_name: 'John', last_name: 'Doe', email: 'fake@domain.com', address: '123 Fake St'} }
 
     post '/api/v0/customers/new', params: customer_params, as: :json
 
