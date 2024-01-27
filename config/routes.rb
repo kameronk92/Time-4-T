@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       post 'customers/new', to: 'customers#create'
       post 'customers/:id/subscription/:id', to: 'customer_subscriptions#create'
       put 'customers/:id/subscription/:id', to: 'customer_subscriptions#update'
+      get 'customers/:id/subscriptions', to: 'customer_subscriptions#index'
     end
   end
 end

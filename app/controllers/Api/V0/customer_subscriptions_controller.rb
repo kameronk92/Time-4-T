@@ -21,6 +21,11 @@ class Api::V0::CustomerSubscriptionsController < ApplicationController
     end
   end
 
+  def index
+    customer_subscriptions = CustomerSubscription.where(customer_id: params[:customer_id])
+    render json: CustomerSubscriptionSerializer.new(customer_subscriptions), status: 200
+  end
+
   private
 
   def customer_subscription_params
