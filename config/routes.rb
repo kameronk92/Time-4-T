@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     namespace :v0 do
       post 'customers/new', to: 'customers#create'
       post 'customers/:id/subscription/:id', to: 'customer_subscriptions#create'
+      put 'customers/:id/subscription/:id', to: 'customer_subscriptions#update'
     end
   end
 end

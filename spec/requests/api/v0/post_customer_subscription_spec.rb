@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Customer Subscription API' do
+RSpec.describe 'Customer Subscription Post Requests' do
   describe 'happy path' do
     it 'can create a customer subscription' do
       customer = create(:customer)
