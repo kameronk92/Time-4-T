@@ -23,7 +23,12 @@ class Api::V0::CustomerSubscriptionsController < ApplicationController
 
   def index
     customer_subscriptions = CustomerSubscription.where(customer_id: params[:customer_id])
-    render json: CustomerSubscriptionSerializer.new(customer_subscriptions), status: 200
+
+    if customer_subscriptions.empty?
+      render json: { error: 'Customer Subscriptions not found' }, status: 404
+    else
+      render json: CustomerSubscriptionSerializer.new(customer_subscriptions), status: 200
+    end
   end
 
   private
