@@ -1,6 +1,6 @@
 # README
 
-Time-4-T is a backend database application that contains linked customers, teas, tea subscriptions. It follows guidelines on this [site](https://mod4.turing.edu/projects/take_home/take_home_be) to create 4 RESTful endpoints:
+Time-4-T is a backend database application that contains linked customers, teas, and tea subscriptions. It follows guidelines on this [site](https://mod4.turing.edu/projects/take_home/take_home_be) to create 4 RESTful endpoints:
 1. POST  /api/v0/customers/new
 2. POST  /api/v0/customers/:id/subscription/:id
 3. PUT  /api/v0/customers/:id/subscription/:id
@@ -16,6 +16,7 @@ Time-4-T is a backend database application that contains linked customers, teas,
 Time-4-T uses serializers to return JSON in response to requests to the 4 endpoints listed above. Sample requests and *parsed* responses are provided below. 
 
 No authorization is required for requests to this API. 
+
 ### POST  /api/v0/customers/new
 #### Request: 
 Requests to create a new customer must include the customer data in the request body, including first name, last name, email, and address. 
@@ -26,7 +27,7 @@ A successful response will contain the customer's ID and the attributes passed i
 
 ### POST  /api/v0/customers/:id/subscription/:id
 #### Request:
-Requests to create a new user subscription must include the customer id and the subscription id in the body. Optionally, the subscription status can be passed as an enum ({ active: 0, paused: 1, cancelled: 2}).
+Requests to create a new user subscription must include the customer id and the subscription id in the body. Optionally, the subscription status can be passed as an enum ({ active: 0, paused: 1, cancelled: 2}). The default status is active. 
 
 #### Response
 A successful response will have a status code 201 and contain the customer subscription attributes, including the customer id, the subscription id, and the customer subscription status as a string. 
@@ -42,7 +43,7 @@ The response body will be in JSON format. A parsed example of a successful respo
 
 ### PUT /api/v0/customers/:id/subscription/:id
 #### Request
-Requests to change a customer subscription status should be sent to this endpoint, and contain the desired updated status as an enum integer ({ active: 0, paused: 1, cancelled: 2}).
+Requests to *change* a customer subscription status should be sent to this endpoint, and optionally contain the desired updated status as an enum integer ({ active: 0, paused: 1, cancelled: 2}). Without an argument, the status will default to *active*.
 
 #### Response
 A successful response will have a status code 200 and contain the customer subscription attributes, including the customer id, the subscription id, and the customer subscription status as a string. 
